@@ -4,6 +4,8 @@ import './Calculator.css'
 import React from "react";
 import Button from "./Button.js";
 import {useState} from "react";
+import mypic from "./mypic.jpg";
+
 
 function KeyPadComponent(props){
     const [text1, setText ] = useState("")
@@ -18,6 +20,16 @@ function KeyPadComponent(props){
         setText(eval(text1))
         alert(eval(text1))             
         }
+        else if (e.target.value === "show me") {
+  setText("My Picture");
+}
+else if (e.target.value === "square") {
+  const num = parseFloat(text1);
+  if (!isNaN(num)) {
+    setText(num * num);
+  }
+}
+
         else
         setText(text1+e.target.value)
       };
@@ -27,6 +39,11 @@ function KeyPadComponent(props){
             <div className="Calculator">
                 <div className="screen-row">
                 <input type="text" readOnly value= {text1} />
+                { text1 === "My Picture" && (
+  <img src={mypic} alt="My Photo" className="myImage" />
+
+)}
+
                 </div>
                 
                
@@ -61,6 +78,10 @@ function KeyPadComponent(props){
                 <Button label="=" ClickHandle={ClickHandle}/>
                 <Button label="/" ClickHandle={ClickHandle}/>
                 </div>
+                <Button label="show me" ClickHandle={ClickHandle}/>
+                <Button label="square" ClickHandle={ClickHandle}/>
+
+
                 
                 
             </div>
