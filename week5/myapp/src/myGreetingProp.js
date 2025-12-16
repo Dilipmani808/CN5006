@@ -4,7 +4,8 @@ function GreetingElementwithProp(props) {
  console.log("prop is",props.msg)
  return (
  <div className="App">
- <h1>{props.msg}</h1>;
+    <h1>{greeting}</h1>;
+ <h2>{props.msg}</h2>;
  </div>
  );
 }
